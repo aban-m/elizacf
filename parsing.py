@@ -43,7 +43,7 @@ def parse_conditions(s: str) -> list:
         'index': set()
     }
 
-    s = s.lower().strip()
+    s = s.lower().strip().replace('\n', ' ').replace('\t', ' ')
     length = len(s)
     s += ' '
     i = 0
@@ -78,11 +78,14 @@ def parse_conditions(s: str) -> list:
             conditions['tags'].append(tag)
 
         elif s[i:i+3] == 'div':
-            i += 4
+            i += 3
             conditions['div'].add(int(s[i]))
 
-        else:
+        elif s[i] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower():
             conditions['index'].add(s[i].upper())
+
+        else:
+            raise ValueError(f'Unrecognized token: {s[i]}.')
 
         i += 1
 
