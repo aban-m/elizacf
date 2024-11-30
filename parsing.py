@@ -75,7 +75,7 @@ def parse_conditions(s: str) -> list:
             while s[i] != ' ':
                 tag += s[i]
                 i += 1
-            conditions['tags'].append(tag)
+            conditions['tags'].append(tag.replace('_', ' '))
 
         elif s[i:i+3] == 'div':
             i += 3
