@@ -12,7 +12,7 @@ config.read(os.path.join(__location__, 'config.ini'))
 
 TOKEN = config['bot']['token'].strip()
 bot = telebot.TeleBot(TOKEN, parse_mode='MarkdownV2',
-                      threaded = True
+                      threaded = False
                       )
 
 # some utility functions
