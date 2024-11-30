@@ -1,6 +1,11 @@
+from configparser import ConfigParser
 import telebot
-from utils import escape
+from .utils import escape
+from .data import find
 
+config = ConfigParser()
+config.read('config.ini')
+TOKEN = config['bot']['token'].strip()
 bot = telebot.TeleBot(TOKEN, parse_mode='MarkdownV2',
                       threaded = True
                       )

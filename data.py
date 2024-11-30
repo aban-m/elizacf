@@ -1,8 +1,15 @@
 import json
 import random
-from parsing import *
+import os
+from .parsing import *
 
-PROBLEMS = json.load(open('static/problems.json', 'r', encoding='utf-8'))
+
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+PROBLEMS = json.load(open(
+    os.path.join(__location__, 'static/problems.json'),
+    'r', encoding='utf-8'))
 TEMPLATE = '''**{index}. {name}**{div_string}
 {url}
 
