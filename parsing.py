@@ -28,8 +28,9 @@ def evaluate_problem(problem: dict, conditions: dict) -> bool:
 
     required_tags = set(tag for tag in conditions['tags'] if not tag.startswith('-'))
     excluded_tags = set(tag[1:] for tag in conditions['tags'] if tag.startswith('-'))
-    if (required_tags and not required_tags.issubset(tags)): print('bad +tags'); return False
-    if not tags.isdisjoint(excluded_tags): print('bad -tags'); return False
+    
+    if (required_tags and not required_tags.issubset(tags)): return False
+    if not tags.isdisjoint(excluded_tags):  return False
     
     return True
 

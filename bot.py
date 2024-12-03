@@ -33,7 +33,6 @@ def com_pick(msg):
 
     try:
         cond = parsing.parse_conditions(text[1])
-        print(cond)
     except Exception as e:
         print(e)
         reply('Parsing failed.', msg)
