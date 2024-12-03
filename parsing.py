@@ -26,7 +26,7 @@ def evaluate_problem(problem: dict, conditions: dict) -> bool:
     if conditions['index'] and index not in conditions['index']:
         return False
 
-    required_tags = set(tag for tag in conditions['tags'] if not tag.startswith('-'))
+    required_tags = set(tag[1:] for tag in conditions['tags'] if not tag.startswith('-'))
     excluded_tags = set(tag[1:] for tag in conditions['tags'] if tag.startswith('-'))
     
     if (required_tags and not required_tags.issubset(tags)): return False
