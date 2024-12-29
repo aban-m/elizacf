@@ -22,3 +22,7 @@ Two post-processing steps have been applied to the resulting data:
 - The `div` of each contest has been parsed (unreliably!) and added as a field to the Problem object.
 - The `solvedCount` field has been copied from the "statistics" object provided by the API.
 These two steps, together, lead to more query options and better performance.
+
+### Update (December 29th, 2024)
+CodeForces added a feature that allows users to add random problems, chosen according to user-provided criteria, to a mashup:
+https://codeforces.com/blog/entry/137946
